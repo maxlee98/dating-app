@@ -2,7 +2,7 @@
 
 ## Packages required
 
-npm i @emotion/styled @emotion/react @mui/styled-engine @mui/icons-material @mui/material react-router-dom
+npm i @emotion/styled @emotion/react @mui/styled-engine @mui/icons-material @mui/material react-router-dom axios
 
 # Setting up of Backend Express
 

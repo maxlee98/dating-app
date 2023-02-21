@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -28,7 +29,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="/">
-        LandingPage
+        Dating-App
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -44,9 +45,44 @@ export default function RegisterNice() {
   const [successMessage, setSuccessMessage] = useState(null);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log([...data]); // to see all the fields
+
+    const p1 = data.get("password");
+    const p2 = data.get("re-password");
+    if (p1 !== p2) {
+      setErrorMessage("Passwords do not match. Please try again.");
+    }
+    axios
+      .post("http://localhost:4000/api/register-account", {
+        firstName: data.get("firstName"),
+        lastName: data.get("lastName"),
+        email: data.get("email"),
+        phone: data.get("phone"),
+        password: data.get("password"),
+        gender: data.get("gender"),
+      })
+      .then((response) => {
+        console.log(response.statusText);
+        if (response.statusText !== "OK") {
+          setErrorMessage("Email Already Exists");
+          throw new Error("Email Already Exists");
+        } else {
+          setSuccessMessage("Authenticated Successfully");
+          setTimeout(() => {
+            navigate("/login");
+          }, 1000);
+        }
+      })
+      .catch((error) => {
+        console.error(
+          "There was a problem sending the data to the server:",
+          error
+        );
+        setErrorMessage(error.message);
+      });
+
+    event.preventDefault();
   };
 
   return (
@@ -105,6 +141,16 @@ export default function RegisterNice() {
                 <TextField
                   required
                   fullWidth
+                  id="phone"
+                  label="Mobile Number"
+                  name="phone"
+                  autoComplete="phone"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
                   id="email"
                   label="Email Address"
                   name="email"
@@ -135,29 +181,18 @@ export default function RegisterNice() {
               </Grid>
               <Grid item xs={12}>
                 <FormControl fullWidth sx={{ mb: 2 }}>
-                  <InputLabel id="bank-account-type-label">
-                    Account Type
-                  </InputLabel>
+                  <InputLabel id="gender-label">Gender</InputLabel>
                   <Select
-                    labelId="bank-account-type-label"
-                    id="bank-account-type"
-                    name="bank-account-type"
+                    labelId="gender-label"
+                    id="gender"
+                    name="gender"
                     required
                   >
-                    <MenuItem value="debit">Debit</MenuItem>
-                    <MenuItem value="credit">Credit</MenuItem>
-                    <MenuItem value="savings">Savings</MenuItem>
-                    <MenuItem value="checking">Checking</MenuItem>
+                    <MenuItem value="male">Male</MenuItem>
+                    <MenuItem value="female">Female</MenuItem>
+                    <MenuItem value="neither">Prefer not to say</MenuItem>
                   </Select>
                 </FormControl>
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I confirm that I am a human."
-                />
               </Grid>
             </Grid>
             <Button
