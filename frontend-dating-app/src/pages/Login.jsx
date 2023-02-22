@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -43,6 +44,31 @@ export default function LoginNice() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log([...data]);
+    axios
+      .post(`http://localhost:4000/api/authenticate`, {
+        email: data.get("email"),
+        password: data.get("password"),
+      })
+      .then((response) => {
+        console.log(response.statusText);
+        if (response.statusText !== "OK") {
+          setErrorMessage("Email or Password is incorrect, please try again.");
+          throw new Error("Email or Password is incorrect, please try again.");
+        } else {
+          setErrorMessage(null);
+          setSuccessMessage("Authenticated Successfully");
+          setTimeout(() => {
+            navigate("/home");
+          }, 1000);
+        }
+      })
+      .catch((error) => {
+        console.error(
+          "There was a problem sending the data to the server:",
+          error
+        );
+        setErrorMessage(error.message);
+      });
   };
 
   return (
