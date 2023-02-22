@@ -46,7 +46,28 @@ router.post("/api/register-account", (req, res) => {
 
 // Authenticate a user
 router.post("/api/authenticate", (req, res) => {
-  // ...
+  const { email, password } = req.body;
+  const sql = `SELECT * FROM users WHERE email = $1 AND password = $2`;
+  const values = [email, password];
+  req.pool.query(sql, values, function (err, result) {
+    if (err) throw err;
+    if (result.rows.length > 0) {
+      // console.log(result.rows[0].account_id);
+      const acc = result.rows[0];
+      res.status(200).send({
+        success: true,
+        message: "Authentication successful!",
+        accountID: acc.account_id,
+        first_name: acc.first_name,
+      });
+    } else {
+      console.log(result);
+      res.status(401).send({
+        success: false,
+        message: "Authentication failed. Invalid username or password.",
+      });
+    }
+  });
 });
 
 // Export an array of all the routers
