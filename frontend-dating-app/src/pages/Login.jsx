@@ -55,10 +55,16 @@ export default function LoginNice() {
           setErrorMessage("Email or Password is incorrect, please try again.");
           throw new Error("Email or Password is incorrect, please try again.");
         } else {
+          console.log(response.data.profile_done);
+
           setErrorMessage(null);
           setSuccessMessage("Authenticated Successfully");
           setTimeout(() => {
-            navigate("/home");
+            if (response.data.profile_done) {
+              navigate("/home");
+            } else {
+              navigate("/profile");
+            }
           }, 1000);
         }
       })

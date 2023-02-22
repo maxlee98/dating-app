@@ -59,6 +59,7 @@ router.post("/api/authenticate", (req, res) => {
         message: "Authentication successful!",
         accountID: acc.account_id,
         first_name: acc.first_name,
+        profile_done: acc.profile_done,
       });
     } else {
       console.log(result);
