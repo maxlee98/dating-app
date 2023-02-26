@@ -1,12 +1,18 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
-
+import AuthAPI from "../api/auth.api";
 import axios from "axios";
 
 const SignInForm = (props) => {
   const navigate = useNavigate();
 
   const onFinish = async (values) => {
+    const postRequest = {
+      email: values.Email,
+      password: values.password,
+    };
+    const data = await AuthAPI.register(postRequest);
+    // To be transferred over to auth.api.js
     console.log(values);
     axios
       .post(`http://localhost:4000/api/login`, {
