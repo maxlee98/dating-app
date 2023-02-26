@@ -2,8 +2,8 @@ import { useState } from "react";
 import SignInForm from "../../components/sign-in-form-ant";
 import SignUpForm from "../../components/sign-up-form-ant";
 
-import landingImg from "../../assets/images/landing-img.jpeg";
-import logo from "../../assets/images/dbs-logo.png";
+import landingImg from "../../assets/images/login-img.jpg";
+import logo from "../../assets/images/dating-app-logo.png";
 import "./auth-page.css";
 
 export default function AuthPage() {
@@ -13,8 +13,11 @@ export default function AuthPage() {
     <div className="ap-page-wrapper">
       <div className="ap-form-section">
         <div className="ap-form-wrapper">
-          <img src={logo} style={{ height: 50, width: "auto" }} />
-          <h1 className="ap-header">Welcome to DBS Seed</h1>
+          <div className="ap-header-wrapper">
+            <img src={logo} style={{ height: 50, width: "auto" }} />
+            <h1 className="ap-header">Welcome to Dating Seed</h1>
+          </div>
+
           <p className="ap-para">
             Please enter your login credentials to access your account, or sign
             up for a new account.
