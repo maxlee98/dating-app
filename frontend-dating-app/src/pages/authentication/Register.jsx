@@ -68,7 +68,8 @@ export default function RegisterNice() {
           setErrorMessage("Email Already Exists");
           throw new Error("Email Already Exists");
         } else {
-          setSuccessMessage("Authenticated Successfully");
+          setErrorMessage(null);
+          setSuccessMessage("Registered Successfully");
           setTimeout(() => {
             navigate("/login");
           }, 1000);
