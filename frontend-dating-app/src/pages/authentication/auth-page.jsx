@@ -43,7 +43,7 @@ export default function AuthPage() {
 
           {/* Form Section Here */}
           {pageMode === "sign-in" && <SignInForm />}
-          {pageMode === "sign-up" && <SignUpForm />}
+          {pageMode === "sign-up" && <SignUpForm setPageMode={setPageMode} />}
         </div>
       </div>
       <div className="ap-advertisement-section">

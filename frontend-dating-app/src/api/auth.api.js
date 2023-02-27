@@ -9,9 +9,12 @@ export default class AuthAPI {
    * @param {username : string, email : string, password : whatever} request
    */
   static async register(request) {
-    const response = await axios.post(ENDPOINT.REGISTER, request);
-
-    return response.data;
+    try {
+      const response = await axios.post(ENDPOINT.REGISTER, request);
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
   }
 
   static async login(req) {
