@@ -3,9 +3,6 @@ import { useState } from "react";
 import AuthAPI from "../api/auth.api";
 
 const SignUpForm = (props) => {
-  const [isRegistrationSuccessful, setIsRegistrationSuccessful] =
-    useState(false);
-
   const onFinish = async (values) => {
     const postRequest = {
       email: values.Email,

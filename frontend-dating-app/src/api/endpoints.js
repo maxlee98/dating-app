@@ -6,5 +6,5 @@ export const ENDPOINT = {
   CREATE: `${BASE_URL}/users`,
   UPDATE: `${BASE_URL}/users/2`,
   REGISTER: `${BASE_URL}/api/register-account`,
-  LOGIN: `${BASE_URL}/login`,
+  LOGIN: `${BASE_URL}/api/authenticate`,
 };

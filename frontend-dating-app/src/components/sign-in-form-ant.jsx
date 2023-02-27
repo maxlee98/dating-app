@@ -1,53 +1,30 @@
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Checkbox, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import AuthAPI from "../api/auth.api";
 import axios from "axios";
 import { useState } from "react";
 
 const SignInForm = (props) => {
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const onFinish = async (values) => {
     console.log(values);
     const postRequest = {
-      email: values.Email,
+      email: values.email,
       password: values.password,
     };
 
     try {
-      const res = await AuthAPI.register(postRequest);
-      console.log(res.profile_done);
+      const data = await AuthAPI.login(postRequest);
+      console.log(data);
       setTimeout(() => {
+        message.success("Login Successful", 5);
         navigate("/home");
       }, 1000);
     } catch (err) {
+      message.error("Login is unsuccessful", 5);
       throw err;
     }
-
-    // To be transferred over to auth.api.js
-    // axios
-    //   .post(`http://localhost:4000/api/login`, {
-    //     email: values.email,
-    //     password: values.password,
-    //   })
-    //   .then((response) => {
-    //     console.log(response.statusText);
-    //     if (response.statusText !== "OK") {
-    //       throw new Error("Email or Password is incorrect, please try again.");
-    //     } else {
-    //       console.log(response.data.profile_done);
-    //       setTimeout(() => {
-    //         navigate("/home");
-    //       }, 1000);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error(
-    //       "There was a problem sending the data to the server:",
-    //       error
-    //     );
-    //   });
   };
 
   return (

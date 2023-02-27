@@ -18,8 +18,12 @@ export default class AuthAPI {
   }
 
   static async login(req) {
-    const response = await axios.post(ENDPOINT.LOGIN, req);
-    return response.data;
+    try {
+      const response = await axios.post(ENDPOINT.LOGIN, req);
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
   }
 
   // Examples for future references
