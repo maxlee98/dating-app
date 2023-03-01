@@ -4,6 +4,7 @@ import AuthPage from "./pages/authentication/auth-page";
 
 import Login from "./pages/authentication/Login";
 import Register from "./pages/authentication/Register";
+import HomePage from "./pages/HomePage/HomePage";
 import Profile from "./pages/Profile/Profile";
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/auth-page" element={<AuthPage />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );
