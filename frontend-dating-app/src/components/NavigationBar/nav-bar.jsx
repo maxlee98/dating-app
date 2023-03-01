@@ -1,6 +1,7 @@
 import { Menu, Dropdown, Avatar } from "antd";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/dating-app-logo.png";
+import "./nav-bar.css";
 
 export default function NavigationBar() {
   const menu = (
@@ -15,34 +16,22 @@ export default function NavigationBar() {
   );
 
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "0 20px",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <Link to="/chats" style={{ marginLeft: 20, color: "black" }}>
+    <div className="navbar-container">
+      <div className="navbar-logo-container">
+        <Link to="/chats" className="navbar-link">
           Chats
         </Link>
       </div>
-      <div>
-        <img src={logo} alt="logo" style={{ height: 75 }} />
-      </div>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <Link to="/filter" style={{ marginRight: 20, color: "black" }}>
+      <img src={logo} alt="logo" className="navbar-logo" />
+      <div className="navbar-menu-container">
+        <Link to="/filter" className="navbar-link">
           Filter
         </Link>
-        <Link to="/explore" style={{ marginRight: 20, color: "black" }}>
+        <Link to="/explore" className="navbar-link">
           Explore
         </Link>
         <Dropdown overlay={menu} placement="bottomRight">
-          <Avatar style={{ backgroundColor: "#1890ff", cursor: "pointer" }}>
-            P
-          </Avatar>
+          <Avatar className="navbar-avatar">P</Avatar>
         </Dropdown>
       </div>
     </div>
