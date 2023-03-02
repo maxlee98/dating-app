@@ -1,7 +1,10 @@
 import { Breadcrumb, Layout, theme } from "antd";
 import { useState } from "react";
-import ImageCarousel from "../../components/Feature-Card/image-carousel";
+import FeatureCard from "../../components/Feature-Card/feature-card";
+import ImageCarousel from "../../components/image-carousel/image-carousel";
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
+import "./HomePage.css";
+
 const { Header, Content, Footer } = Layout;
 
 export default function HomePage() {
@@ -35,8 +38,9 @@ export default function HomePage() {
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>
-
-          <ImageCarousel />
+          <div className="feautre-card-container">
+            <FeatureCard />
+          </div>
         </Content>
         <Footer
           style={{
