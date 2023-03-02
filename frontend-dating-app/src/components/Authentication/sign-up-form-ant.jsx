@@ -1,6 +1,6 @@
 import { Button, Checkbox, Form, Input, Radio, message } from "antd";
 import { useState } from "react";
-import AuthAPI from "../api/auth.api";
+import AuthAPI from "../../api/auth.api";
 
 const SignUpForm = (props) => {
   const onFinish = async (values) => {

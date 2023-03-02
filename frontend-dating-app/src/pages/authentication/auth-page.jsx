@@ -1,6 +1,6 @@
 import { useState } from "react";
-import SignInForm from "../../components/sign-in-form-ant";
-import SignUpForm from "../../components/sign-up-form-ant";
+import SignInForm from "../../components/Authentication/sign-in-form-ant";
+import SignUpForm from "../../components/Authentication/sign-up-form-ant";
 
 import landingImg from "../../assets/images/login-img.jpg";
 import logo from "../../assets/images/dating-app-logo.png";

@@ -1,0 +1,4 @@
+.featured-image-container {
+  display: flex !important;
+  justify-content: center;
+}

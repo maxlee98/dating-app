@@ -1,6 +1,6 @@
 import { Button, Checkbox, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import AuthAPI from "../api/auth.api";
+import AuthAPI from "../../api/auth.api";
 import axios from "axios";
 import { useState } from "react";
 
