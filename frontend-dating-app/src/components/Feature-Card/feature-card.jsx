@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { HeartTwoTone, DislikeTwoTone, CrownTwoTone } from "@ant-design/icons";
 import { Avatar, Card } from "antd";
 import ImageCarousel from "../image-carousel/image-carousel";
 
@@ -14,9 +10,21 @@ const FeatureCard = () => (
     style={{ width: 300 }}
     cover={<ImageCarousel />}
     actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
+      <DislikeTwoTone
+        key="dislike"
+        twoToneColor="red"
+        style={{ fontSize: "3vw" }}
+      />,
+      <CrownTwoTone
+        key="crown"
+        twoToneColor="cyan"
+        style={{ fontSize: "3vw" }}
+      />,
+      <HeartTwoTone
+        key="like"
+        twoToneColor="lightgreen"
+        style={{ fontSize: "3vw" }}
+      />,
     ]}
   >
     <Meta

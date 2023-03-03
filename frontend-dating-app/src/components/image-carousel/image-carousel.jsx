@@ -13,21 +13,21 @@ const ImageCarousel = () => (
     <div className="featured-image-container">
       <Image
         width={300}
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        src="https://joesch.moe/api/v1/male/joe"
         className="featured-image"
       />
     </div>
     <div className="featured-image-container">
       <Image
         width={300}
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        src="https://joesch.moe/api/v1/male/jake"
         className="featured-image"
       />
     </div>
     <div className="featured-image-container">
       <Image
         width={300}
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        src="https://joesch.moe/api/v1/male/jed"
         className="featured-image"
       />
     </div>

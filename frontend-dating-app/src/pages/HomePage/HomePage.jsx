@@ -24,7 +24,7 @@ export default function HomePage() {
             padding: 0,
             background: colorBgContainer,
           }}
-        />
+        ></Header>
         <Content
           style={{
             margin: "0 16px",
@@ -38,7 +38,7 @@ export default function HomePage() {
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>
-          <div className="feautre-card-container">
+          <div className="feature-card-container">
             <FeatureCard />
           </div>
         </Content>
