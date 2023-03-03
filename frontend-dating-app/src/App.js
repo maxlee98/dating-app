@@ -6,6 +6,7 @@ import Login from "./pages/authentication/Login";
 import Register from "./pages/authentication/Register";
 import HomePage from "./pages/HomePage/HomePage";
 import Profile from "./pages/Profile/Profile";
+import TestPage from "./pages/TestPage";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/auth-page" element={<AuthPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/test" element={<TestPage />} />
       </Routes>
     </BrowserRouter>
   );

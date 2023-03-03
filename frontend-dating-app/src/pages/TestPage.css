@@ -1,0 +1,9 @@
+.feature-carousel {
+  max-width: 800px;
+  margin: 0 auto; /* center the container */
+}
+
+.test-page-container {
+  background-color: black;
+  max-width: 100vw;
+}
