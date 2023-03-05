@@ -5,8 +5,8 @@ import "./image-carousel.css";
 
 const ImageCarousel = () => (
   <Carousel
-    autoplay
-    autoplaySpeed={1000}
+    // autoplay
+    // autoplaySpeed={1000}
     effect="fade"
     className="carousel-wrap"
   >

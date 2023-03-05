@@ -1,6 +1,5 @@
 import { Breadcrumb, Layout, theme } from "antd";
 import { useState } from "react";
-import FeatureCarousel from "../../components/feature-card-carousel/feature-card-carousel";
 import FeatureCard from "../../components/feature-card-carousel/Feature-Card/feature-card";
 
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
