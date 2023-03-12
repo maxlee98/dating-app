@@ -1,4 +1,5 @@
 import { Breadcrumb, Layout, theme } from "antd";
+
 import { useState } from "react";
 import FeatureCard from "../../components/feature-card-carousel/Feature-Card/feature-card";
 
@@ -38,7 +39,7 @@ export default function HomePage() {
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>
-          <div className="feature-card-container">
+          <div className="body-container">
             <FeatureCard />
           </div>
         </Content>
@@ -47,7 +48,7 @@ export default function HomePage() {
             textAlign: "center",
           }}
         >
-          Ant Design ©2023 Created by Ant UED
+          Dating App ©2023 Created by Max Lee
         </Footer>
       </Layout>
     </Layout>
